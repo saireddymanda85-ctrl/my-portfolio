@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prasanna Kumar Reddy Manda | Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio of Prasanna Kumar Reddy Manda, a Computer Science and Engineering diploma student."
+  >
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* =========================
+       VARIABLES
+    ========================= */
+
+    :root {
+      --dark: #0b1220;
+      --dark-card: #141f30;
+      --light: #f6f7f5;
+      --white: #ffffff;
+
+      --text: #0b1220;
+      --text-light: #4b5768;
+      --text-muted: #8592a3;
+      --text-dark-light: #b7c2d0;
+
+      --blue: #3e7cb1;
+      --blue-light: #dce9f2;
+
+      --amber: #e0a458;
+      --green: #5fa37a;
+
+      --border: #dfe3e6;
+
+      --mono: "IBM Plex Mono", monospace;
+      --sans: "IBM Plex Sans", sans-serif;
+      --display: "Space Grotesk", sans-serif;
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    ::selection {
+      background: var(--amber);
+      color: var(--dark);
+    }
+
+
+    /* =========================
+       ACCESSIBILITY
+    ========================= */
+
+    :focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+    }
+
+
+    /* =========================
+       COMMON LAYOUT
+    ========================= */
+
+    .container {
+      width: min(1040px, calc(100% - 56px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin-bottom: 28px;
+      font-family: var(--display);
+      font-size: clamp(24px, 3vw, 30px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .section-description {
+      max-width: 640px;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 15.5px;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(246, 247, 245, 0.9);
+      border-bottom: 1px solid var(--border);
+
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+    }
+
+    .logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      list-style: none;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      position: relative;
+
+      color: var(--text-light);
+      text-decoration: none;
+
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--blue);
+
+      content: "";
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 64px 0 56px;
+
+      background: var(--dark);
+      color: #eaf0f6;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 34px 34px;
+
+      mask-image: radial-gradient(
+        ellipse at 70% 20%,
+        black 10%,
+        transparent 65%
+      );
+
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 44px;
+      align-items: start;
+    }
+
+
+    /* =========================
+       CODE EDITOR
+    ========================= */
+
+    .editor {
+      max-width: 720px;
+      overflow: hidden;
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+
+      background: var(--dark-card);
+
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+    }
+
+    .editor-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 10px 14px;
+
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .editor-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .editor-dot.red {
+      background: #e5665c;
+    }
+
+    .editor-dot.yellow {
+      background: #e8b450;
+    }
+
+    .editor-dot.green {
+      background: var(--green);
+    }
+
+    .editor-tabs {
+      display: flex;
+      gap: 2px;
+      margin-left: 14px;
+
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .editor-tab {
+      padding: 5px 12px;
+      color: var(--text-muted);
+
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .editor-tab.active {
+      color: #eaf0f6;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .editor-code {
+      padding: 22px 24px 26px;
+
+      font-family: var(--mono);
+      font-size: 13.5px;
+      line-height: 1.85;
+    }
+
+    .line-number {
+      display: inline-block;
+      width: 22px;
+
+      color: #4a5a72;
+
+      user-select: none;
+    }
+
+    .comment {
+      color: #6b7a90;
+    }
+
+    .keyword {
+      color: #8fb5e0;
+    }
+
+    .string {
+      color: var(--amber);
+    }
+
+    .function {
+      color: #8ac5a8;
+    }
+
+    .variable {
+      color: #c9a0e0;
+    }
+
+    .cursor {
+      display: inline-block;
+
+      width: 7px;
+      height: 15px;
+
+      background: var(--amber);
+
+      vertical-align: -2px;
+
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+
+    /* =========================
+       HERO CONTENT
+    ========================= */
+
+    .hero-name {
+      margin-top: 30px;
+
+      color: #ffffff;
+
+      font-family: var(--display);
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 700;
+
+      letter-spacing: -0.01em;
+    }
+
+    .hero-role {
+      margin-top: 8px;
+
+      color: var(--amber);
+
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-description {
+      max-width: 520px;
+      margin-top: 16px;
+
+      color: var(--text-dark-light);
+      font-size: 15.5px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 11px 20px;
+
+      border-radius: 6px;
+
+      font-family: var(--mono);
+      font-size: 13px;
+      text-decoration: none;
+
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .button-primary {
+      color: var(--dark);
+      background: var(--amber);
+      font-weight: 600;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      color: #eaf0f6;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .button-outline:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       PROFILE IMAGE
+    ========================= */
+
+    .profile {
+      position: relative;
+    }
+
+    .profile::before {
+      position: absolute;
+      inset: -8px;
+
+      border: 1px solid rgba(224, 164, 88, 0.35);
+      border-radius: 16px;
+
+      content: "";
+      pointer-events: none;
+    }
+
+    .profile img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+
+      object-fit: cover;
+      object-position: center 20%;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    #about,
+    #skills,
+    #certifications,
+    #projects,
+    #more {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 14px;
+
+      color: var(--text-light);
+      font-size: 15.5px;
+    }
+
+    .facts {
+      padding: 22px;
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      background: var(--white);
+    }
+
+    .facts dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 16px;
+
+      font-size: 14px;
+    }
+
+    .facts dt {
+      padding-top: 2px;
+
+      color: var(--text-muted);
+
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .facts dd {
+      color: var(--text);
+    }
+
+    .facts dd a {
+      text-decoration: underline;
+      text-decoration-color: var(--border);
+      text-underline-offset: 3px;
+    }
+
+    .facts dd a:hover {
+      color: var(--blue);
+    }
+
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--white);
+    }
+
+    .skill-card {
+      padding: 20px;
+    }
+
+    .card-title {
+      margin-bottom: 14px;
+
+      color: var(--text-muted);
+
+      font-family: var(--mono);
+      font-size: 12.5px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 11px;
+
+      border: 1px solid transparent;
+      border-radius: 5px;
+
+      color: #25507a;
+      background: var(--blue-light);
+
+      font-family: var(--mono);
+      font-size: 12.5px;
+    }
+
+
+    /* =========================
+       CERTIFICATIONS
+    ========================= */
+
+    .certification-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .certification-column h3 {
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+
+      color: var(--text-muted);
+
+      border-bottom: 1px solid var(--border);
+
+      font-family: var(--mono);
+      font-size: 12.5px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .certification {
+      display: flex;
+      gap: 12px;
+
+      padding: 12px 0;
+
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .certification:last-child {
+      border-bottom: 0;
+    }
+
+    .cert-number {
+      flex-shrink: 0;
+
+      padding-top: 3px;
+
+      color: var(--amber);
+
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .cert-name {
+      color: var(--text);
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+
+    .cert-meta {
+      margin-top: 2px;
+
+      color: var(--text-muted);
+      font-size: 12.5px;
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+
+      padding: 28px;
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      background: var(--white);
+    }
+
+    .project-card + .project-card {
+      margin-top: 20px;
+    }
+
+    .project-card.featured {
+      border-color: var(--blue);
+      box-shadow: 0 12px 30px -18px rgba(62, 124, 177, 0.35);
+    }
+
+    .project-card h3 {
+      margin-bottom: 8px;
+
+      font-family: var(--display);
+      font-size: 20px;
+    }
+
+    .project-card p {
+      max-width: 520px;
+      margin-bottom: 12px;
+
+      color: var(--text-light);
+      font-size: 14.5px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tags span {
+      padding: 4px 9px;
+
+      border: 1px solid var(--border);
+      border-radius: 5px;
+
+      color: var(--text-muted);
+
+      font-family: var(--mono);
+      font-size: 11.5px;
+    }
+
+    .project-card.featured .project-tags span {
+      color: #25507a;
+      border-color: var(--blue-light);
+    }
+
+    .project-symbol {
+      justify-self: end;
+
+      color: var(--blue);
+
+      font-family: var(--mono);
+      font-size: 34px;
+
+      opacity: 0.5;
+    }
+
+    .project-label {
+      margin-top: 36px;
+    }
+
+
+    /* =========================
+       LANGUAGES & STRENGTHS
+    ========================= */
+
+    .more-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .more-card {
+      padding: 20px;
+    }
+
+    .language-row {
+      display: flex;
+      justify-content: space-between;
+
+      padding: 7px 0;
+
+      border-bottom: 1px dashed var(--border);
+
+      font-size: 14px;
+    }
+
+    .language-row:last-child {
+      border-bottom: 0;
+    }
+
+    .language-level {
+      color: var(--text-muted);
+
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .strength-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+
+      list-style: none;
+    }
+
+    .strength-list li {
+      position: relative;
+
+      padding-left: 18px;
+
+      font-size: 14px;
+    }
+
+    .strength-list li::before {
+      position: absolute;
+      left: 0;
+
+      color: var(--amber);
+
+      content: "→";
+
+      font-family: var(--mono);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      padding: 70px 0 40px;
+
+      background: var(--dark);
+      color: #eaf0f6;
+    }
+
+    .footer .eyebrow {
+      color: var(--amber);
+    }
+
+    .footer h2 {
+      margin-bottom: 14px;
+
+      font-family: var(--display);
+      font-size: clamp(26px, 3.5vw, 34px);
+    }
+
+    .footer-description {
+      max-width: 520px;
+      margin-bottom: 28px;
+
+      color: var(--text-dark-light);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+
+      margin-bottom: 48px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 12px 18px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 6px;
+
+      color: #eaf0f6;
+
+      font-family: var(--mono);
+      font-size: 13.5px;
+      text-decoration: none;
+
+      transition:
+        border-color 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .contact-link:hover {
+      border-color: var(--amber);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      padding-top: 24px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      color: var(--text-muted);
+
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 840px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .profile {
+        order: -1;
+        max-width: 220px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .certification-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .more-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(100% - 32px, 1040px);
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero-name {
+        margin-top: 24px;
+      }
+
+      .editor-code {
+        padding: 18px;
+        font-size: 12px;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-symbol {
+        display: none;
+      }
+
+      .facts dl {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .facts dt {
+        margin-top: 8px;
+      }
+
+      .facts dd {
+        margin-bottom: 4px;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-link {
+        justify-content: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav class="navbar">
+    <div class="container navbar-inner">
+
+      <a class="logo" href="#top">
+        manda<span>.</span>dev
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <main id="top">
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+      <div class="container">
+
+        <div class="hero-grid">
+
+          <div class="hero-content">
+
+            <div class="editor">
+
+              <div class="editor-header">
+                <span class="editor-dot red"></span>
+                <span class="editor-dot yellow"></span>
+                <span class="editor-dot green"></span>
+
+                <div class="editor-tabs">
+                  <span class="editor-tab active">about.js</span>
+                  <span class="editor-tab">skills.json</span>
+                </div>
+              </div>
+
+              <div class="editor-code">
+
+                <div>
+                  <span class="line-number">1</span>
+                  <span class="comment">// career objective</span>
+                </div>
+
+                <div>
+                  <span class="line-number">2</span>
+                  <span class="keyword">const</span>
+                  <span class="variable">student</span> = {
+                </div>
+
+                <div>
+                  <span class="line-number">3</span>
+                  &nbsp;&nbsp;name:
+                  <span class="string">
+                    "Prasanna Kumar Reddy Manda"
+                  </span>,
+                </div>
+
+                <div>
+                  <span class="line-number">4</span>
+                  &nbsp;&nbsp;field:
+                  <span class="string">
+                    "Computer Science &amp; Engineering"
+                  </span>,
+                </div>
+
+                <div>
+                  <span class="line-number">5</span>
+                  &nbsp;&nbsp;status:
+                  <span class="string">
+                    "Final Year Diploma Student"
+                  </span>,
+                </div>
+
+                <div>
+                  <span class="line-number">6</span>
+                  &nbsp;&nbsp;seeking:
+                  <span class="function">internship</span>(
+                  <span class="string">"entry-level"</span>)
+                </div>
+
+                <div>
+                  <span class="line-number">7</span>
+                  };
+                  <span class="cursor"></span>
+                </div>
+
+              </div>
+            </div>
+
+
+            <h1 class="hero-name">
+              Prasanna Kumar Reddy Manda
+            </h1>
+
+            <p class="hero-role">
+              Computer Science &amp; Engineering Diploma Student
+            </p>
+
+            <p class="hero-description">
+              Motivated and enthusiastic CSE student building a foundation
+              across programming, cloud, and software engineering — eager
+              to apply what I've learned in a real internship or
+              entry-level role.
+            </p>
+
+            <div class="hero-buttons">
+              <a class="button button-primary" href="#contact">
+                Get in touch
+              </a>
+
+              <a class="button button-outline" href="#certifications">
+                View certifications
+              </a>
+            </div>
+
+          </div>
+
+
+          <!-- PROFILE IMAGE
+               Keep profile.jpg.jpeg in the same folder as this HTML file.
+          -->
+
+          <div class="profile">
+            <img
+              src="profile.jpg.jpeg"
+              alt="Portrait of PRASANNA KUMAR REDDY"
+              width="700"
+              height="1043"
+              loading="eager"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about" class="reveal">
+
+      <div class="container">
+
+        <p class="eyebrow">About</p>
+
+        <h2 class="section-title">
+          Where I'm starting from
+        </h2>
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <p>
+              I'm a final-year Diploma student in Computer Science &
+              Engineering at Aditya Polytechnic College, working to build
+              practical, job-ready skills across programming and
+              software development.
+            </p>
+
+            <p>
+              Alongside my coursework, I've completed job simulations
+              and self-paced courses from Forage, Scaler, Cisco,
+              Microsoft, Google, and IBM — covering everything from
+              software engineering fundamentals to cybersecurity and
+              cloud engineering. I'm a quick learner who enjoys
+              solving problems and picking up new technologies, and I'm
+              looking for an internship or entry-level opportunity to
+              put that into practice.
+            </p>
+
+          </div>
+
+
+          <div class="facts">
+
+            <dl>
+
+              <dt>Education</dt>
+              <dd>
+                Diploma in CSE, Aditya Polytechnic College — Final Year
+              </dd>
+
+              <dt>Location</dt>
+              <dd>India</dd>
+
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:saireddymanda85@gmail.com">
+                  saireddymanda85@gmail.com
+                </a>
+              </dd>
+
+              <dt>Phone</dt>
+              <dd>
+                <a href="tel:+919848185149">
+                  +91 98481 85149
+                </a>
+              </dd>
+
+              <dt>LinkedIn</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/prasanna-kumar-reddy-manda-316695418"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin.com/in/prasanna-kumar-reddy-manda
+                </a>
+              </dd>
+
+              <dt>Languages</dt>
+              <dd>
+                Telugu, English, Hindi, Japanese (learning)
+              </dd>
+
+            </dl>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills" class="reveal">
+
+      <div class="container">
+
+        <p class="eyebrow">Skills</p>
+
+        <h2 class="section-title">
+          Technical toolkit
+        </h2>
+
+        <div class="skill-grid">
+
+          <div class="card skill-card">
+
+            <h3 class="card-title">
+              Languages
+            </h3>
+
+            <div class="tag-list">
+              <span class="tag">C</span>
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">SQL</span>
+            </div>
+
+          </div>
+
+
+          <div class="card skill-card">
+
+            <h3 class="card-title">
+              Web &amp; Tools
+            </h3>
+
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+            </div>
+
+          </div>
+
+
+          <div class="card skill-card">
+
+            <h3 class="card-title">
+              Productivity
+            </h3>
+
+            <div class="tag-list">
+              <span class="tag">MS Word</span>
+              <span class="tag">Excel</span>
+              <span class="tag">PowerPoint</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================= -->
+
+    <section id="certifications" class="reveal">
+
+      <div class="container">
+
+        <p class="eyebrow">Certifications</p>
+
+        <h2 class="section-title">
+          Courses &amp; job simulations
+        </h2>
+
+        <p class="section-description" style="margin-bottom: 32px;">
+          A mix of foundational courses and virtual job simulations
+          from Forage, completed to explore different engineering
+          disciplines hands-on.
+        </p>
+
+
+        <div class="certification-grid">
+
+
+          <div class="certification-column">
+
+            <h3>Forage Job Simulations</h3>
+
+            <div class="certification">
+              <span class="cert-number">01</span>
+              <div>
+                <div class="cert-name">
+                  GE Aerospace — Explore Engineering
+                </div>
+                <div class="cert-meta">
+                  Issued Jul 2026 · Aerospace Engineering
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">02</span>
+              <div>
+                <div class="cert-name">
+                  Commonwealth Bank — Software Engineering
+                </div>
+                <div class="cert-meta">
+                  Issued Jul 2026 · Java, Software Development
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">03</span>
+              <div>
+                <div class="cert-name">
+                  Walmart USA — Advanced Software Engineering
+                </div>
+                <div class="cert-meta">
+                  Issued Jul 2026 · Java, Software Development
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">04</span>
+              <div>
+                <div class="cert-name">
+                  Tata — Cybersecurity Analyst
+                </div>
+                <div class="cert-meta">
+                  Issued Jun 2026
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">05</span>
+              <div>
+                <div class="cert-name">
+                  Citi — Technology Software Development
+                </div>
+                <div class="cert-meta">
+                  Issued Jul 2026
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="certification-column">
+
+            <h3>Courses &amp; Foundations</h3>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  DevOps vs. SRE vs. Cloud vs. Platform Engineer — Scaler
+                </div>
+                <div class="cert-meta">
+                  Issued Aug 2026
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  Designing Scalable RAG Pipelines — Scaler Masterclass
+                </div>
+                <div class="cert-meta">
+                  Issued Aug 2026 · Generative AI, RAG
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  Cisco — Introduction to Cybersecurity
+                </div>
+                <div class="cert-meta">
+                  Cisco Networking Academy
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  Cisco — Python Essentials
+                </div>
+                <div class="cert-meta">
+                  Cisco Networking Academy
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  Microsoft Learn
+                </div>
+                <div class="cert-meta">
+                  Completed modules
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  Google Cloud Skills Boost
+                </div>
+                <div class="cert-meta">
+                  Completed modules
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  IBM SkillsBuild
+                </div>
+                <div class="cert-meta">
+                  Completed modules
+                </div>
+              </div>
+            </div>
+
+            <div class="certification">
+              <span class="cert-number">→</span>
+              <div>
+                <div class="cert-name">
+                  Adobe Photoshop — Hi-Tech Computers
+                </div>
+                <div class="cert-meta">
+                  Issued Jun 2024
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects" class="reveal">
+
+      <div class="container">
+
+        <p class="eyebrow">Featured Project</p>
+
+        <h2 class="section-title">
+          Something I built
+        </h2>
+
+
+        <article class="project-card featured">
+
+          <div>
+
+            <h3>
+              DROID AI — AI-Powered Software Engineering Workspace
+            </h3>
+
+            <p>
+              DROID AI is an AI-powered software engineering workspace
+              designed to help developers plan, build, understand,
+              test, and manage software projects using AI-powered
+              workflows and specialized agents. It brings requirement
+              analysis, architecture planning, code generation, and a
+              sandboxed live preview into a single three-panel IDE.
+            </p>
+
+            <div class="project-tags">
+              <span>React</span>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>Tailwind CSS</span>
+              <span>Node.js</span>
+              <span>Python</span>
+              <span>AI / LLM</span>
+              <span>RAG</span>
+              <span>AI Agents</span>
+              <span>PostgreSQL</span>
+            </div>
+
+          </div>
+
+          <div class="project-symbol">
+            &lt;/&gt;
+          </div>
+
+        </article>
+
+
+        <p class="eyebrow project-label">
+          Academic Project
+        </p>
+
+        <article class="project-card">
+
+          <div>
+
+            <h3>
+              Interactive Code &amp; Syntax Learning Playground
+            </h3>
+
+            <p>
+              An interactive platform designed for programming
+              beginners, featuring hands-on coding practice and
+              structured syntax-learning modules to help new learners
+              build confidence line by line.
+            </p>
+
+            <div class="project-tags">
+              <span>Education</span>
+              <span>Interactive UI</span>
+              <span>Beginner-friendly</span>
+            </div>
+
+          </div>
+
+          <div class="project-symbol">
+            &lt;/&gt;
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LANGUAGES & STRENGTHS
+    ========================= -->
+
+    <section id="more" class="reveal">
+
+      <div class="container">
+
+        <p class="eyebrow">More</p>
+
+        <h2 class="section-title">
+          Languages &amp; strengths
+        </h2>
+
+        <div class="more-grid">
+
+
+          <div class="card more-card">
+
+            <h3 class="card-title">
+              Languages
+            </h3>
+
+            <div class="language-row">
+              <span>Telugu</span>
+              <span class="language-level">fluent</span>
+            </div>
+
+            <div class="language-row">
+              <span>English</span>
+              <span class="language-level">fluent</span>
+            </div>
+
+            <div class="language-row">
+              <span>Hindi</span>
+              <span class="language-level">fluent</span>
+            </div>
+
+            <div class="language-row">
+              <span>Japanese</span>
+              <span class="language-level">learning</span>
+            </div>
+
+          </div>
+
+
+          <div class="card more-card">
+
+            <h3 class="card-title">
+              Strengths
+            </h3>
+
+            <ul class="strength-list">
+              <li>Quick learner</li>
+              <li>Problem solving</li>
+              <li>Teamwork</li>
+              <li>Communication skills</li>
+              <li>Time management</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       CONTACT / FOOTER
+  ========================= -->
+
+  <footer id="contact" class="footer">
+
+    <div class="container">
+
+      <p class="eyebrow">
+        Contact
+      </p>
+
+      <h2>
+        Let's connect
+      </h2>
+
+      <p class="footer-description">
+        Looking for an internship or entry-level opportunity where
+        I can learn, contribute, and grow. Reach out — I'd love to
+        hear from you.
+      </p>
+
+
+      <div class="contact-links">
+
+        <a
+          class="contact-link"
+          href="mailto:saireddymanda85@gmail.com"
+        >
+          ✉ saireddymanda85@gmail.com
+        </a>
+
+        <a
+          class="contact-link"
+          href="tel:+919848185149"
+        >
+          ☎ +91 98481 85149
+        </a>
+
+        <a
+          class="contact-link"
+          href="https://www.linkedin.com/in/prasanna-kumar-reddy-manda-316695418"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          in LinkedIn Profile
+        </a>
+
+      </div>
+
+
+      <div class="footer-bottom">
+        <span>
+          © 2026 Prasanna Kumar Reddy Manda
+        </span>
+
+        <span>
+          Built with intent, one line at a time
+        </span>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+    ========================= -->
+
+  <script>
+    const sections = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    sections.forEach((section) => {
+      revealObserver.observe(section);
+    });
+  </script>
+
+</body>
+</html>
