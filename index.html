@@ -256,7 +256,7 @@
       z-index: 1;
 
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 260px;
+      grid-template-columns: minmax(0, 1fr) 340px;
       gap: 44px;
       align-items: start;
     }
@@ -487,16 +487,18 @@
     }
 
     .profile img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
+  display: block;
+  width: 100%;
+  height: auto;
 
-      object-fit: cover;
-      object-position: center 20%;
+  object-fit: contain;
+  object-position: center;
 
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
 
-      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+
     }
 
 
@@ -939,7 +941,7 @@
 
       .profile {
         order: -1;
-        max-width: 220px;
+        max-width: 280px;
       }
 
       .about-grid {
